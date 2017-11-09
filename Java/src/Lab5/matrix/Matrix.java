@@ -24,9 +24,17 @@ public class Matrix {
                 macierz.add(new LinkedList<String>());
                 tekst=in_.nextLine();
                 int j=0;
+                String liczba="";
                 while (j<tekst.length()){
                     if(!",".equals(""+tekst.charAt(j)))
-                        macierz.get(h).add("" + tekst.charAt(j));
+                        liczba+=tekst.charAt(j);
+                    else{
+                        macierz.get(h).add(liczba);
+                        liczba="";
+                    }
+                    if(j==tekst.length()-1&&!liczba.equals(""))
+                        macierz.get(h).add(liczba);
+
                     j++;
                 }
                 h++;
