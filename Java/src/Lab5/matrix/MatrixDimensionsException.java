@@ -1,7 +1,7 @@
 package Lab5.matrix;
 
-public class BadSize extends Throwable {
-    BadSize(){
+public class MatrixDimensionsException extends Throwable {
+    MatrixDimensionsException(){
         System.out.print("Rozmiary macierzy nie pozwalaja na wykonanie tej operacji :( ");
     }
 
