@@ -11,7 +11,7 @@ public class Mnozenie extends Operator2Arg {
         double w1= fir.oblicz(jakis);
         Operator sec= jakis.pop();
         double w2= sec.oblicz(jakis);
-        return w1+w2;
+        return w1*w2;
     };
 
 

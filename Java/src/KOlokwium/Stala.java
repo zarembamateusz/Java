@@ -7,7 +7,7 @@ public class Stala extends Operator0Arg {
         super(value);
     }
     public double oblicz(Stack<Operator> jakis){
-        return Double.valueOf(this.getWartsc());
+        return Double.valueOf(getWartsc());
     };
 
 }

@@ -14,7 +14,8 @@ public class Silnia extends Opereator1Arg {
     }
     public double oblicz(Stack<Operator> jakis){
         Operator fir= jakis.pop();
-        return silnia(Double.valueOf(fir.getWartsc()));
+        double w1=fir.oblicz(jakis);
+        return silnia(w1);
     };
 
 }
