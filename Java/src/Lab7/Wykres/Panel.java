@@ -18,10 +18,10 @@ public class Panel extends JPanel {
     private JTextField x1_ =new JTextField(2);
     private JTextField x2_ =new JTextField(2);
     private JButton drowButton =new JButton("Rysuj wykres");
-    private double[] tab_;
-    private double h=0.1;
-    private double x1=0;
-    private double x2=1;
+    private double[] tab_=new double[3];
+   // private double h=0.1;
+    //private double x1=-10;
+    //private double x2=10;
     LinkedList<Point> punkty = new LinkedList<>();
 
     public Panel(){
@@ -29,6 +29,9 @@ public class Panel extends JPanel {
     }
 
     private void prepareGUI(){
+        licz();
+        Draw uklad = new Draw(punkty);
+
 
         mainFrame = new JFrame("Wolfram wersja 0,000001 xD");
         mainFrame.setSize(700,700);
@@ -37,7 +40,7 @@ public class Panel extends JPanel {
                 System.exit(0);
             }
         });
-        if(punkty.size()!=0){
+        /*if(punkty.size()!=0){
 
         }else {
             panel.add(probka);
@@ -47,8 +50,10 @@ public class Panel extends JPanel {
             panel.add(drowButton);
             mainFrame.add(panel);
 
-        }
-        downloadValue();
+        }*/
+       // downloadValue();
+        mainFrame.add(uklad);
+        mainFrame.repaint();
         mainFrame.setVisible(true);
     }
 
@@ -56,9 +61,9 @@ public class Panel extends JPanel {
         drowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                h=Double.parseDouble(probka.getText());
-                x1=Double.parseDouble(x1_.getText());
-                x2=Double.parseDouble(x2_.getText());
+                //h=Double.parseDouble(probka.getText());
+                //x1=Double.parseDouble(x1_.getText());
+                //x2=Double.parseDouble(x2_.getText());
                 String ws=wsp.getText().toString();
                 String liczba="";
                 int len=1;
@@ -88,8 +93,12 @@ public class Panel extends JPanel {
     }
 
     private void licz(){
-        System.out.print("tutaj2");
-        if(tab_!=null) {
+        tab_[0]=0;
+        tab_[1]=0;
+        tab_[2]=1;
+        double h=0.1;
+        double x1=-10;
+        double x2=10;
             while (x1 <= x2) {
                 double wynik = 0;
                 for (int i = 0; i < tab_.length; i++)
@@ -97,13 +106,13 @@ public class Panel extends JPanel {
                 punkty.add(new Point(x1, wynik));
                 x1 += h;
             }
-        }
-        if(punkty.size()>0) {
+
+        /*if(punkty.size()>0) {
             System.out.print("tutaj3" +punkty.size());
             Draw uklad = new Draw(punkty);
             mainFrame.add(uklad);
             mainFrame.repaint();
-        }
+        }*/
 
     }
 
