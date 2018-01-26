@@ -3,30 +3,53 @@ package Crossword;
 public class Word {
     private String word;
     private String description;
-    private boolean inUse;
+    private boolean isCorrect;
     private int useLetter;
+    private String solve;
+
+
+
 
     public Word(){
+        solve="";
         word="";
         description="";
-        inUse=false;
+        isCorrect=false;
         useLetter=0;
+
     }
     public Word(String word_,String description_){
+        solve="";
         word=word_;
         description=description_;
-        inUse=false;
+        isCorrect=false;
         useLetter=0;
+    }
+
+    public String getSolve() {
+        return solve;
+    }
+
+    public void setSolve(String solve) {
+        this.solve = solve;
+
     }
     public boolean thisSame(Word sec_){
         return word.equals(sec_.getWord());
     }
-    public boolean getInUse() {
-        return inUse;
+    public boolean getIsCorrect() {
+        return isCorrect;
     }
 
-    public void setInUse(boolean inUse) {
-        this.inUse = inUse;
+        public void setIsCorrect(boolean easy) {
+        if(easy) {
+            if (word.equals(solve))
+                isCorrect = true;
+            else
+                isCorrect = false;
+        }else
+            isCorrect = false;
+
     }
 
     public int getUseLetter() {
